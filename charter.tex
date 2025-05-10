@@ -5,7 +5,7 @@
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Título del proyecto} 
+\titulo{Videojuego portátil estilo \textit{handheld} retro con STM32} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Especialización en Sistemas Embebidos} 
@@ -16,7 +16,7 @@
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
 % IMPORTANTE: no omitir titulaciones ni tildación en los nombres, también se recomienda escribir los nombres completos (tal cual los tienen en su documento)
-\autor{Título y Nombre del autor}
+\autor{Lic. Jezabel VIctoria Danon}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
 \director{Título y Nombre del director}
@@ -25,12 +25,12 @@
 \pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{Terna de jurados evaluadores del postgrado}
+\empresaCliente{FIUBA}
  
-\fechaINICIO{30 de abril de 2023}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{18 de junio de 2023} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{15 de mayo de 2024}	%Fecha de defensa pública del trabajo final
+\fechaINICIO{29 de abril de 2025}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{18 de junio de 2025} 	%Fecha de final de cursada de GdP
+\fechaFINALTrabajo{15 de diciembre de 2025}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -59,7 +59,7 @@
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
-%1      & Se completa hasta el punto 5 inclusive                & {día} de {mes} de 202X \\ \hline
+1      & Se completa hasta el punto 5 inclusive                & {10} de {mayo} de 2025 \\ \hline
 %2      & Se completa hasta el punto 9 inclusive
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
@@ -85,7 +85,14 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de una caldera industrial}. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con la \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en 
+%\textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de una caldera industrial}. 
+el desarrollo de un prototipo de consola de videojuegos portátil minimalista con un único juego integrado. 
+El trabajo tendrá un presupuesto preliminar estimado de 
+\textcolor{red}{600} horas y un costo estimado de 
+%\textcolor{red}{\$ XXX}, 
+€ 120 (ciento veinte euros),
+con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -106,51 +113,85 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-El objetivo es que el lector, en una o dos páginas, exponga de qué se trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
+%{Cubre: contexto y objetivos y problema}
+El proyecto responde a una temática de interés personal y tiene como objetivo principal acreditar los conocimientos obtenidos en el postgrado. Esto implica la utilización de diversos módulos de hardware y la implementación de técnicas de ingeniería de software específicas para sistemas embebidos. Como objetivo secundario, se planteó que el área de aplicación seleccionada no requiriera del asesoramiento experto de terceros, para maximizar el enfoque en el uso autónomo de los contenidos de la carrera de especialización. También se consideró que el proyecto fuera viable para alguien sin experiencia previa en estos temas.
 
-Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cuál es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
+%{solución}
+La solución propuesta es un sistema embebido que articula los conocimientos del posgrado, manteniendo una complejidad técnica abordable. El desarrollo incluye el uso coordinado de periféricos variados y protocolos de comunicación comunes en sistemas reales. Además, requiere diseñar una arquitectura de software clara, con módulos separados para entrada, salida y lógica de control del sistema. La aplicación final consiste en una consola de videojuegos portátil inspirada en dispositivos retro, con algunas mejoras funcionales propias de plataformas actuales.
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+%{estado del arte}
+Las primeras consolas portátiles de videojuegos, conocidas como \textit{handheld consoles}, establecieron una lógica de diseño centrada en la simplicidad, la portabilidad y el uso eficiente de recursos. Dispositivos como Mattel Auto Race (1976) o Electronic Football (1977) usaban pantallas de LED y una mecánica de juego muy básica, basada en puntos luminosos. Más adelante, la serie Game \& Watch (Nintendo, 1980) introdujo pantallas LCD y juegos integrados en hardware dedicado. La aparición de consolas como la Game Boy (Nintendo), la Atari Lynx y la Sega Game Gear, entre 1989 y 1990, permitió expandir estas ideas mediante cartuchos intercambiables, mayor calidad gráfica y audio mejorado, sin abandonar el enfoque de sistema cerrado y orientado exclusivamente al juego. Estas plataformas funcionaban con microprocesadores de 4, 8 o hasta 16 bits, sin sistemas operativos ni procesamiento paralelo, y su interacción se limitaba a botones físicos y salidas visuales y sonoras básicas.
 
-\begin{itemize}
-	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
-	\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
-	\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está la solución que se propone?
-	\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
-	\item ¿Por dónde pasa la innovación?
-\end{itemize}
+Con el tiempo, las consolas \textit{handheld} evolucionaron hacia arquitecturas más complejas, con mejores capacidades gráficas, pantallas retroiluminadas a color, sonido estéreo y almacenamiento digital. También incorporaron nuevas formas de interacción, como pantallas táctiles, sensores de movimiento y motores de vibración. Estas incorporaciones permitieron enriquecer la experiencia de juego sin perder la portabilidad ni la simplicidad de uso. Aunque no todas estas tecnologías se consolidaron como estándar en el ámbito portátil, abrieron nuevas posibilidades para la interacción física y sensorial entre el usuario y el dispositivo.
 
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
 
-Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+%{descripción funcional}
+El sistema a desarrollar adoptará una arquitectura cerrada y específica, centrada en la ejecución de un único videojuego implementado directamente en el firmware del dispositivo. Al iniciarse, el juego permitirá controlar la simulación del vuelo de una aeronave a partir de la interacción con botones y un joystick analógico, los cuales enviarán señales al sistema en tiempo real. La respuesta del sistema se manifestará a través de una interfaz visual, junto con retroalimentación sonora y háptica asociada a distintos eventos del juego.
 
+El prototipo incluirá sensores de movimiento que permitirán detectar variaciones de posición del dispositivo. La información capturada del sensor, los botones y el joystick será procesada para determinar parámetros de vuelo tales como velocidad, altitud, dirección y posición de la aeronave dentro de un mapa predefinido. Dichos parámetros permitirán actualizar la representación gráfica, sonora y táctil de la simulación. 
+
+En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema, en el que se observa el microcontrolador que coordinará el funcionamiento de los distintos módulos: entradas (botones, joystick, sensores), salidas (pantalla, audio, vibración) y almacenamiento externo. El estado del juego deberá guardarse en memoria no volátil, utilizando una EEPROM externa o una tarjeta SD, permitiendo su recuperación tras un reinicio. El prototipo se conectará a una fuente de alimentación portátil.
+
+%{diagrama de bloques}
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.65\textwidth]{./Figuras/diagBloques.png}
+\includegraphics[width=.85\textwidth]{./Figuras/diagrama_bloques_proyecto.pdf}
 \caption{Diagrama en bloques del sistema.}
 \label{fig:diagBloques}
 \end{figure}
 
 \vspace{25px}
 
-El tamaño del texto en TODAS las figuras debe ser adecuado \textbf{para que NO pase lo que ocurre en la figura \ref{fig:diagBloques}}, donde el lector debe esforzarse para poder leer el texto. 
+%{propuesta de valor}
+El presente proyecto no se plantea como un producto de innovación con proyección comercial, pero se distingue por reinterpretar el concepto de consola portátil clásica desde una perspectiva actual. A partir de una arquitectura simple y dedicada, centrada en un único juego, se incorporan características técnicas poco comunes en dispositivos de este tipo, como el uso de un microcontrolador de 32 bits, pantalla a color, sensores de movimiento, retroalimentación háptica y almacenamiento persistente del estado del juego.
 
-Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama. Se recomienda evitar colores primarios (como rojo, verde o cyan) y usar la gama de colores pastel.
 
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+% \begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+% El objetivo es que el lector, en una o dos páginas, exponga de qué se trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
+
+% Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cuál es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
+
+% Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+
+% \begin{itemize}
+% 	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
+% 	\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
+% 	\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
+% 	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
+% 	\item ¿En qué estado del ciclo de vida está la solución que se propone?
+% 	\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
+% 	\item ¿Por dónde pasa la innovación?
+% \end{itemize}
+
+% La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
+
+% Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+
+% \begin{figure}[htpb]
+% \centering 
+% \includegraphics[width=.65\textwidth]{./Figuras/diagBloques.png}
+% \caption{Diagrama en bloques del sistema.}
+% \label{fig:diagBloques}
+% \end{figure}
+
+% \vspace{25px}
+
+% El tamaño del texto en TODAS las figuras debe ser adecuado \textbf{para que NO pase lo que ocurre en la figura \ref{fig:diagBloques}}, donde el lector debe esforzarse para poder leer el texto. 
+
+% Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama. Se recomienda evitar colores primarios (como rojo, verde o cyan) y usar la gama de colores pastel.
+
+% \end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-\textbf{Nota importante:} borrar esto y todas las consignas en color rojo antes de entregar este documento). Esto se hace eliminando el par de comandos que forman el bloque consigna, \verb!\begin{consigna}{red}! y \verb!\end{consigna}{red}! del código. 
+% \begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+% \textbf{Nota importante:} borrar esto y todas las consignas en color rojo antes de entregar este documento). Esto se hace eliminando el par de comandos que forman el bloque consigna, \verb!\begin{consigna}{red}! y \verb!\end{consigna}{red}! del código. 
  
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos. Si se considera que una persona cumple dos o más roles, entonces \textbf{solo dejarla en el rol más importante}. 
+% Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos. Si se considera que una persona cumple dos o más roles, entonces \textbf{solo dejarla en el rol más importante}. 
 
-Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente. Si una persona es el Responsable, \textbf{no debe ser colocado también como miembro del equipo}.
+% Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente. Si una persona es el Responsable, \textbf{no debe ser colocado también como miembro del equipo}.
 
 
 \begin{table}[ht]
@@ -160,90 +201,106 @@ Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
+%Auspiciante   & \authorname     &  FIUBA        	&  -      	\\ \hline
+Cliente       & \clientename      &\empclientename	&       	\\ \hline
+%Impulsor      &                   &              	&        	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
+%Colaboradores &                   &              	&        	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+%Equipo        & miembro1 \newline 
+%				miembro2          &              	&        	\\ \hline
+%Opositores    &                   &              	&        	\\ \hline
+%Usuario final &                   &              	&        	\\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los orientadores.
+% El Director suele ser uno de los orientadores.
 
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
+% No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
 
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
+% No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
 
-Es deseable listar a continuación las principales características de cada interesado.
+% Es deseable listar a continuación las principales características de cada interesado.
  
-Por ejemplo:
-\begin{itemize}
-	\item Orientador: la Dra. Ing. María Gómez es experta en la temática y va a ayudar con la definición de los requerimientos y el desarrollo del firmware del embebido.
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
-\end{itemize}
+% Por ejemplo:
+% \begin{itemize}
+% 	\item Orientador: la Dra. Ing. María Gómez es experta en la temática y va a ayudar con la definición de los requerimientos y el desarrollo del firmware del embebido.
+% 	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
+% 	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
+% \end{itemize}
 
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+% \end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+Aplicar de forma integrada los conocimientos adquiridos durante el posgrado en una solución técnica concreta, desarrollada de manera autónoma. Se busca abordar un caso representativo de sistemas embebidos que permita ejercitar competencias clave de la carrera, como la gestión de periféricos, la programación en tiempo real y el diseño modular de software. 
 
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
+% \begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
-Se recomienda que sea solo un párrafo que continúe con la idea de la frase ``el propósito de este proyecto es...'' (omitir la frase, ya que está en el título de la sección).
-\end{consigna}
+% ¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
+
+% Se recomienda que sea solo un párrafo que continúe con la idea de la frase ``el propósito de este proyecto es...'' (omitir la frase, ya que está en el título de la sección).
+% \end{consigna}
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
+% \begin{consigna}{red}
+% ¿Qué se incluye y que no se incluye en este proyecto?
 
-Se refiere al trabajo que se va a hacer para entregar el producto o resultado especificado. 
+% Se refiere al trabajo que se va a hacer para entregar el producto o resultado especificado. 
 
-Explicitar todo lo quede comprendido dentro del alcance del proyecto. Por ejemplo:
+% Explicitar todo lo quede comprendido dentro del alcance del proyecto. Por ejemplo:
 
 El proyecto incluye:
 \begin{itemize}
-	\item Ítem 1.
-	\item Ítem 2.
+	\item El diseño y construcción de un prototipo funcional de consola portátil de videojuegos.
+	\item El desarrollo de un juego de simulación de vuelo, implementado directamente en el firmware.
+	\item La integración de periféricos de entrada:
 		\begin{itemize}
-		\item Subítem 1.
-		\item Subítem 2.
-		\item ...
+		\item Botones físicos.
+		\item Joystick analógico.
+		\item Sensor de movimiento (acelerómetro y/o giroscopio).
 		\end{itemize}
-	\item ...
-	
+	\item La integración de periféricos de salida:
+		\begin{itemize}
+		\item Pantalla TFT (a color).
+		\item Salida sonora mediante parlante o buzzer.
+		\item Motor de vibración para retroalimentación háptica.
+		\end{itemize}
+	\item El almacenamiento del estado del juego en memoria no volátil.
+	\item La documentación técnica requerida para su presentación como trabajo final de especialización.
 \end{itemize}
+El presente proyecto no incluye:
+\begin{itemize}
+	\item El diseño y/o la fabricación de una placa de circuito impreso (PCB, por \textit{printed circuit board}).
+	\item El desarrollo de un entorno ejecutable separado del juego: el firmware no estará diseñado de forma general para admitir juegos en formatos estándar.
+	\item Conectividad externa, comunicación inalámbrica o funcionalidades multijugador.
+\end{itemize}
+% Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
 
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+% \end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-``Para el desarrollo del presente proyecto se supone que: ...''
+%\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+Para el desarrollo del presente proyecto se supone que: 
 
 \begin{itemize}
-	\item Supuesto 1.
-	\item Supuesto 2.
-	\item ...
+	\item Se dispondrá de los materiales y componentes necesarios para el prototipo funcional.
+	\item Las horas estimadas de trabajo serán suficientes para cumplir con los objetivos planteados.
+	\item Los conocimientos requeridos para avanzar en las distintas etapas del proyecto se alcanzarán durante el transcurso del posgrado en tiempos compatibles con el desarrollo.
+	\item La solución planteada es técnicamente viable dentro del alcance y recursos definidos.
+	\item El responsable dispondrá de dedicación a tiempo completo hasta culminar el proyecto.
 \end{itemize}
 
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
+% Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
 
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+%\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
