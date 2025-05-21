@@ -5,7 +5,7 @@
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Videojuego portátil estilo \textit{handheld} retro con STM32} 
+\titulo{Videojuego portátil inspirado en consolas retro} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Especialización en Sistemas Embebidos} 
@@ -16,7 +16,7 @@
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
 % IMPORTANTE: no omitir titulaciones ni tildación en los nombres, también se recomienda escribir los nombres completos (tal cual los tienen en su documento)
-\autor{Lic. Jezabel VIctoria Danon}
+\autor{Lic. Jezabel Victoria Danon}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
 \director{Título y Nombre del director}
@@ -25,8 +25,8 @@
 \pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Terna de jurados evaluadores del postgrado}
-\empresaCliente{FIUBA}
+\cliente{Lic. Jezabel Victoria Danon}
+\empresaCliente{Proyecto personal}
  
 \fechaINICIO{29 de abril de 2025}		%Fecha de inicio de la cursada de GdP \fechaInicioName
 \fechaFINALPlan{18 de junio de 2025} 	%Fecha de final de cursada de GdP
@@ -60,10 +60,10 @@
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 5 inclusive                & {10} de {mayo} de 2025 \\ \hline
-%2      & Se completa hasta el punto 9 inclusive
-%		  Se puede agregar algo más \newline
-%		  En distintas líneas \newline
-%		  Así                                                    & {día} de {mes} de 202X \\ \hline
+2      & Se completa hasta el punto 9 inclusive \newline
+		  Agrega usuario final \newline
+		  Cambio de cliente \newline
+		  Cambio de título del proyecto                    & {19} de {mayo} de 2025 \\ \hline
 %3      & Se completa hasta el punto 12 inclusive                & {día} de {mes} de 202X \\ \hline
 %4      & Se completa el plan	                                 & {día} de {mes} de 202X \\ \hline
 
@@ -89,7 +89,7 @@ Por medio de la presente se acuerda con la \authorname\hspace{1px} que su Trabaj
 %\textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de una caldera industrial}. 
 el desarrollo de un prototipo de consola de videojuegos portátil minimalista con un único juego integrado. 
 El trabajo tendrá un presupuesto preliminar estimado de 
-\textcolor{red}{600} horas y un costo estimado de 
+720 horas y un costo estimado de 
 %\textcolor{red}{\$ XXX}, 
 € 120 (ciento veinte euros),
 con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
@@ -197,7 +197,7 @@ El presente proyecto no se plantea como un producto de innovación con proyecci�
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
 %\label{tab:interesados}
-\begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
+\begin{tabularx}{\linewidth}{@{}|l|L{4.7cm}|X|l|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
@@ -210,10 +210,15 @@ Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ 
 %Equipo        & miembro1 \newline 
 %				miembro2          &              	&        	\\ \hline
 %Opositores    &                   &              	&        	\\ \hline
-%Usuario final &                   &              	&        	\\ \hline
+Usuario final &  Entusiastas de sistemas embebidos o videojuegos retro &   	&   	\\ \hline
 \end{tabularx}
 \end{table}
 
+\begin{itemize}
+	\item Cliente: al tratarse de un proyecto académico, se utilizará la figura de cliente a nombre del autor y responsable.
+	\item Responsable: será el autor del presente documento, encargado del desarrollo del prototipo y del cumplimiento de los requerimientos pautados en la planificación.
+	\item Usuario final: personas con conocimientos técnicos básicos o intermedios, interesados en sistemas embebidos y/o videojuegos retro. 
+\end{itemize}
 % El Director suele ser uno de los orientadores.
 
 % No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
@@ -275,7 +280,7 @@ El proyecto incluye:
 \end{itemize}
 El presente proyecto no incluye:
 \begin{itemize}
-	\item El diseño y/o la fabricación de una placa de circuito impreso (PCB, por \textit{printed circuit board}).
+	\item El diseño y/o la fabricación de una placa de circuito impreso (PCB, por \textit{Printed Circuit Board}).
 	\item El desarrollo de un entorno ejecutable separado del juego: el firmware no estará diseñado de forma general para admitir juegos en formatos estándar.
 	\item Conectividad externa, comunicación inalámbrica o funcionalidades multijugador.
 \end{itemize}
@@ -305,110 +310,432 @@ Para el desarrollo del presente proyecto se supone que:
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-Los requerimientos deben enumerarse y de ser posible estar agrupados por afinidad, por ejemplo:
+Los requerimientos del proyecto son los siguientes:
 
 \begin{enumerate}
-	\item Requerimientos funcionales:
-		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
-		\end{enumerate}
+	\item Requerimientos de hardware:
+	\begin{enumerate}
+		\item El prototipo deberá montarse en \textit{protoboard} o soldarse sobre placas de experimentación.
+		\item El prototipo deberá alimentarse a través de una batería.
+		\item El prototipo deberá integrar un sensor capaz de medir la inclinación en al menos dos ejes.
+		\item El prototipo deberá integrar un joystick analógico con capacidad de lectura en dos ejes.
+		\item El prototipo deberá incluir botones tipo switch para funciones definidas.
+		\item El prototipo deberá incorporar una pantalla capaz de mostrar información visual relevante para el juego.
+		\item El prototipo deberá incluir un mecanismo para emitir sonidos o alertas sonoras.
+		\item El prototipo deberá integrar un motor de vibración capaz de generar retroalimentación háptica.
+		\item El prototipo deberá contar con memoria no volátil para el almacenamiento persistente del estado del juego.
+	\end{enumerate}
+	\item Requerimientos de firmware:
+	\begin{enumerate}
+		\item El firmware deberá implementar la lógica para interpretar los datos del sensor de inclinación y el joystick para controlar el modelo de vuelo (cabeceo, alabeo, giro, velocidad).
+		\item El firmware deberá incluir un demo de juego integrado que permita demostrar la lógica implementada y la funcionalidad de los periféricos de entrada y salida.
+		\item El firmware deberá gestionar la visualización de la información del juego en la pantalla.
+		\item El firmware deberá ser capaz de reproducir las alertas sonoras necesarias.
+		\item El firmware deberá controlar la activación y duración del motor de vibración en función de los eventos del juego.
+		\item El firmware deberá implementar la lógica para guardar y cargar el estado del juego en la memoria no volátil.
+		\item El firmware deberá detectar las pulsaciones de los botones y activar las funcionalidades correspondientes (inicio/fin, pausa, guardar, mapa, etc...).
+	\end{enumerate}
 	\item Requerimientos de documentación:
-		\begin{enumerate}
-			\item Requerimiento 1.
-			\item Requerimiento 2 (prioridad menor)
-		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
+	\begin{enumerate}
+		\item Diagrama de conexión de módulos.
+		\item Video demostrativo del uso de las funcionalidades requeridas.
+		\item Informe de avance.
+		\item Memoria técnica.
+	\end{enumerate}
+	\item Requerimientos opcionales:
+	\begin{enumerate}
+		% \item El firmware podrá utilizar un sistema operativo de tiempo real (RTOS por sus siglas en inglés) para gestionar tareas concurrentes como lectura de sensores y salida de señales.
+		\item El firmware podrá incluir gráficos a color para representar la interfaz de usuario (UI por sus siglas en inglés).
+		\item El sistema podrá incluir uno o varios selectores de niveles para aspectos como: el volumen de las señales audio, el nivel de vibración de la consola, modos de visualización diferentes para debug o gráficos, entre otras opciones posibles.
+	\end{enumerate}
 \end{enumerate}
-
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
-
-\textbf{¡¡¡No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!}
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{red}
-Descripción: en esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
-
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia.
-
-El formato propuesto es: 
+Escalas utilizadas para asignar \textit{story points}:
 \begin{enumerate}
-\item ``Como [rol] quiero [tal cosa] para [tal otra cosa]."
-
-\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+	\item Complejidad:
+	\begin{itemize}
+		\item Baja complejidad: 1 Punto
+		\item Media complejidad: 3 Puntos
+		\item Alta complejidad: 5 Puntos
+	\end{itemize}
+	\item Cantidad de trabajo:
+	\begin{itemize}
+		\item Poco trabajo: 1 Punto
+		\item Cantidad de trabajo media: 2 Puntos
+		\item Mucho trabajo: 3 Puntos
+	\end{itemize}
+	\item Incertidumbre asociada:
+	\begin{itemize}
+		\item  Baja incertidumbre: 2 Puntos
+		\item  Incertidumbre media: 5 Puntos
+		\item  Alta incertidumbre: 8 Puntos
+	\end{itemize}
 \end{enumerate}
-\end{consigna}
+
+\textbf{Épica 1:} Control e interacción del usuario con el demo de juego
+
+	\textbf{HU1: Control intuitivo por inclinación.} Como usuario, quiero controlar el cabeceo (\textit{pitch}) y el alabeo (\textit{roll}) de la aeronave inclinando la consola, para tener una experiencia de control más natural e inmersiva.
+
+	Criterios de aceptación:
+	\begin{itemize}
+		\item El sistema interpreta la inclinación de la consola en los ejes X e Y como comandos de alabeo y cabeceo respectivamente.
+		\item La respuesta del modelo de vuelo a la inclinación es inmediata y fluida, sin latencia perceptible.
+		\item El control debe estar calibrado en un rango usable (sin saturar los extremos).
+		\item Se pueden realizar movimientos suaves y precisos con pequeñas inclinaciones.
+	\end{itemize}
+	\textit{Story points}: 13 (complejidad: 3, trabajo: 2, incertidumbre: 5)
+
+	\textbf{HU2: Maniobras precisas con el joystick.} Como usuario, quiero usar el joystick analógico para controlar el giro (\textit{yaw}) y la velocidad de la aeronave, para poder realizar maniobras precisas y ajustar mi trayectoria.
+
+	Criterios de aceptación:
+	\begin{itemize}
+		\item El movimiento horizontal del joystick controla el ángulo de giro de la aeronave de forma proporcional.
+		\item El movimiento vertical del joystick controla la velocidad de avance de la aeronave.
+		\item El control de giro es suave y permite realizar ajustes finos.
+	\end{itemize}
+	\textit{Story points}: 8 (complejidad: 3, trabajo: 2, incertidumbre: 2)
+		
+	\textbf{HU3: Inicio y fin de sesión sencillos.} Como usuario, quiero poder iniciar el juego rápidamente al encender la consola y finalizarla fácilmente cuando termine de jugar.
+
+	Criterios de aceptación:
+	\begin{itemize}
+		\item Al presionar el botón de ``Inicio", la demostración del juego comienza en un estado predefinido.
+		\item Al presionar el botón de ``Finalizar", el juego se detiene y la consola vuelve a un menú principal o estado de espera.
+	\end{itemize}
+	\textit{Story points}: 5 (complejidad: 1, trabajo: 1, incertidumbre: 2)
+		
+\textbf{Épica 2:} Visualización del entorno y mapa
+
+	\textbf{HU4: Información clara del estado.} Como usuario, quiero ver en pantalla información clave como mi velocidad, dirección y posición, para estar siempre informado sobre el estado de mi juego.
+
+	Criterios de aceptación:
+	\begin{itemize}
+		\item La velocidad, dirección y posición actual de la aeronave se representan visualmente en la pantalla.
+		\item Los cambios en la velocidad, dirección y posición se reflejan en la pantalla en tiempo real (sin lags perceptibles).
+	\end{itemize}
+	\textit{Story points}: 21 (complejidad: 5, trabajo: 2, incertidumbre: 8)
+		
+	\textbf{HU5: Visualizar ubicación en el mapa.} Como usuario, quiero ver la posición actual de la aeronave en el mapa, para tener una referencia de navegación.
+
+	Criterios de aceptación:
+	\begin{itemize}
+		\item Al presionar el botón de ``Mapa", se muestra una representación del entorno de vuelo.
+		\item La posición actual de la aeronave se indica claramente en el mapa.
+		\item El mapa es legible y proporciona una orientación básica del entorno.
+	\end{itemize}
+	\textit{Story points}: 21 (complejidad: 5, trabajo: 3, incertidumbre: 8)
+		
+\textbf{Épica 3:} Audio y retroalimentación háptica
+
+	\textbf{HU6: Sonidos y alertas.} Como usuario, quiero que el sistema emita sonidos o señales acústicas distintivas y relevantes durante el juego, para recibir retroalimentación auditiva.
+
+	Criterios de aceptación:
+	\begin{itemize}
+		\item Se generan al menos dos sonidos distintos para diferentes eventos del juego.
+		\item Los sonidos son claramente audibles.
+		\item La emisión de sonido está sincronizada con el evento que la provoca.
+	\end{itemize}
+	\textit{Story points}: 8 (complejidad: 3, trabajo: 2, incertidumbre: 2)
+		
+	\textbf{HU7: Generar vibración durante el juego.} Como usuario, quiero que el dispositivo genere vibración en ciertos eventos del juego, para tener una experiencia más inmersiva y física.
+
+	Criterios de aceptación:
+	\begin{itemize}
+		\item El motor de vibración se activa ante al menos un evento definido.
+		\item La duración de la vibración es perceptible y coherente con el evento.
+	\end{itemize}
+	\textit{Story points}: 8 (complejidad: 1, trabajo: 2, incertidumbre: 5)
+		
+\textbf{Épica 4:} Gestión del estado del juego
+
+	\textbf{HU8: Guardar el estado actual de la partida.} Como usuario, quiero poder guardar el estado del juego en curso, para retomar el progreso más adelante.
+
+	Criterios de aceptación:
+	\begin{itemize}
+		\item El sistema almacena las variables clave del estado del juego en memoria no volátil.
+		\item Se proporciona una señal de confirmación visual y/o sonora al guardar.
+		\item El estado guardado se puede cargar al reiniciar el entorno.
+	\end{itemize}
+	\textit{Story points}: 13 (complejidad: 3, trabajo: 3, incertidumbre: 5)
+		
+	\textbf{HU9: Elegir cómo empezar.} Como usuario, quiero poder seleccionar entre continuar una partida previamente guardada o descartarla e iniciar una nueva, para tener control sobre cómo empezar cada sesión de juego.
+
+	Criterios de aceptación:
+	\begin{itemize}
+		\item Si existe un estado guardado, el sistema ofrece la opción de continuar o iniciar una nueva partida.
+		\item Si no hay estado guardado, el juego comienza automáticamente.
+		\item Se indica claramente la opción seleccionada por el usuario.
+	\end{itemize}
+	\textit{Story points}: 5 (complejidad: 1, trabajo: 2, incertidumbre: 2)
+
+	\textbf{HU10: Pausar y retomar el juego.} Como usuario, quiero poder pausar la partida en cualquier momento para tomar un descanso y luego reanudarla exactamente donde la dejé.
+
+	Criterios de aceptación:
+	\begin{itemize}
+		\item Al presionar el botón de ``Pausa" por primera vez, el juego se detiene.
+		\item Al presionar el botón de ``Pausa" nuevamente, el juego se restablece en el mismo estado que estaba antes de pausar.
+		\item Se indica claramente en pantalla cuando el juego está pausado.
+	\end{itemize}
+	\textit{Story points}: 5 (complejidad: 1, trabajo: 2, incertidumbre: 2)
+		
+\textbf{Épica 5:} Documentación del proyecto
+
+	\textbf{HU11: Entender las conexiones del hardware.} Como cliente, quiero disponer de un diagrama de conexión de los módulos para comprender la arquitectura física del prototipo.
+
+	Criterios de aceptación:
+	\begin{itemize}
+		\item El diagrama muestra todos los módulos de hardware principales.
+		\item Las conexiones entre los módulos son claras y fáciles de seguir.
+		\item Se incluyen etiquetas descriptivas para cada componente y conexión.
+	\end{itemize}
+	\textit{Story points}: 5 (complejidad: 1, trabajo: 1, incertidumbre: 2)
+		
+	\textbf{HU12: Ver el prototipo en acción.} Como cliente, quiero ver un video que muestre las funcionalidades del prototipo para comprobar el cumplimiento de lo solicitado.
+
+	Criterios de aceptación:
+	\begin{itemize}
+		\item El video demuestra las funcionalidades clave de las historias de usuario implementadas.
+		\item El video es claro, bien enfocado y con una duración adecuada.
+		\item Se pueden observar los criterios de aceptación de las funcionalidades en el video.
+	\end{itemize}
+	\textit{Story points}: 5 (complejidad: 1, trabajo: 2, incertidumbre: 2)
+		
+	\textbf{HU13: Seguir el proceso de desarrollo.} Como cliente, quiero recibir al menos un informe de avance para entender la evolución del proyecto.
+
+	Criterios de aceptación:
+	\begin{itemize}
+		\item Se entrega al menos un informe de avance.
+		\item El informe documentan los avances realizados y los cambios respecto al plan (si se presentan).
+		\item El informe es claro y proporciona una visión del progreso del proyecto.
+	\end{itemize}
+	\textit{Story points}: 8 (complejidad: 3, trabajo: 2, incertidumbre: 2)
+		
+	\textbf{HU14: Comprender las decisiones técnicas.} Como cliente, quiero tener acceso a una memoria técnica que explique en detalle el diseño y la implementación del prototipo.
+
+	Criterios de aceptación:
+	\begin{itemize}
+		\item La memoria técnica describe la arquitectura del hardware y del software.
+		\item Se explican las decisiones de diseño clave y sus justificaciones.
+		\item La documentación es clara, organizada y proporciona suficiente detalle técnico.
+	\end{itemize}
+	\textit{Story points}: 13 (complejidad: 3, trabajo: 3, incertidumbre: 5)
+
+
+% \begin{consigna}{red}
+% Descripción: en esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+
+% Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia.
+
+% El formato propuesto es: 
+% \begin{enumerate}
+% \item ``Como [rol] quiero [tal cosa] para [tal otra cosa]."
+
+% \textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+% \end{enumerate}
+% \end{consigna}
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-Los entregables del proyecto son (ejemplo):
+% \begin{consigna}{red}
+Los entregables del proyecto son:
 
 \begin{itemize}
-	\item Manual de usuario.
-	\item Diagrama de circuitos esquemáticos.
-	\item Código fuente del firmware.
-	\item Diagrama de instalación.
-	\item Memoria del trabajo final.
-	\item etc...
+	\item Plan de trabajo.
+	\item Memoria del proyecto. 
+	\item Prototipo funcional. 
+	\item Diagrama de conexiones.
+	\item Código fuente.
 \end{itemize}
-\end{consigna}
+% \end{consigna}
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{red}
-El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
-
 \begin{enumerate}
-\item Grupo de tareas 1 (suma h)
-	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
-	\end{enumerate}
-\item Grupo de tareas 2 (suma h)
-	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
-	\end{enumerate}
-\item Grupo de tareas 3 (suma h)
-	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
-	\item Tarea 4 (tantas h)
-	\item Tarea 5 (tantas h)
-	\end{enumerate}
+	\item Desarrollo del hardware. (42 hs)
+    \begin{enumerate}
+		\item Selección y adquisición de componentes. (5 hs)
+        \begin{enumerate}
+			\item Confirmación de los componentes existentes y verificación de su idoneidad. (2 h)
+			\item Adquisición de componentes faltantes o adicionales. (3 h)
+        \end{enumerate}
+		\item Montaje del prototipo en \textit{protoboard}. (18 hs)
+        \begin{enumerate}
+			\item Planificación del diseño de montaje. (5 h)
+			\item Montaje y cableado del microcontrolador y la fuente de alimentación. (5 h)
+			\item Montaje y cableado del sensor de inclinación. (1 h)
+			\item Montaje y cableado del joystick analógico. (1 h)
+			\item Montaje y cableado de los botones. (1 h)
+			\item Montaje y cableado de la pantalla. (1 h)
+			\item Montaje y cableado del sistema de audio. (2 h)
+			\item Montaje y cableado del motor de vibración. (2 h)
+        \end{enumerate}
+		\item Pruebas por componente en \textit{protoboard}. (18 hs)
+        \begin{enumerate}
+			\item Prueba de conexión del sensor de inclinación. (5 h)
+			\item Prueba de conexión del joystick analógico. (1 h)
+			\item Prueba de conexión de los botones. (1 h)
+			\item Prueba de conexión de la pantalla. (6 h)
+			\item Prueba de conexión del sistema de audio. (2 h)
+			\item Prueba de conexión del motor de vibración. (3 h)
+        \end{enumerate}
+    \end{enumerate}
+	\item Desarrollo del firmware. (509 hs)
+    \begin{enumerate}
+		\item Configuración Inicial del entorno de desarrollo . (2 hs)
+        \begin{enumerate}
+			\item Configuración de la placa, pines y periféricos. (2 h)
+        \end{enumerate}
+		\item Implementación de la lógica del sistema. (135 hs)
+        \begin{enumerate}
+			\item Desarrollo del módulo de adquisición de señales de entrada . (30 h)
+			\item Desarrollo del módulo de generación de señales de salida . (40 h)
+            \begin{enumerate}
+				\item Módulo de salida: sub-módulo de audio.. (5 h)
+				\item Módulo de salida: sub-módulo de vibraciones.. (10 h)
+				\item Módulo de salida: sub-módulo de gráficos.. (25 h)
+            \end{enumerate}
+			\item Investigación sobre distintos sistemas operativos de tiempo real (RTOS por sus siglas en inglés). (10 h)
+			\item Implementación del RTOS seleccionado. (30 h)
+			\item Diseño e implementación de una máquina de estados para el control general del sistema. (25 h)
+        \end{enumerate}
+		\item Implementación del demo de juego. (60 hs)
+        \begin{enumerate}
+			\item Diseño de la lógica del demo de juego. (25h)
+			\item Desarrollo de la máquina de estados del juego. (15 h)
+			\item Integración de la lógica de control con el demo de juego y la máquina de estados del juego. (20 h)
+        \end{enumerate}
+		\item Detección de entradas simples. (20 hs)
+        \begin{enumerate}
+			\item Implementación de la detección de pulsaciones de los botones. (5 h)
+			\item Implementación de la lectura de los datos del joystick analógico. (5 h)
+			\item Integración de las entradas de botones y joystick con la máquina de estados del sistema. (10 h)
+        \end{enumerate}
+		\item Detección de inclinación. (30 hs)
+        \begin{enumerate}
+			\item Implementación de la lectura de los datos del sensor de inclinación . (10 h)
+			\item Procesamiento de los datos del acelerómetro para obtener la inclinación. (10 h)
+			\item Integración de la detección de inclinación con la lógica del sistema. (10 h)
+        \end{enumerate}
+		\item Gestión de la interfaz de usuario. (140 hs)
+        \begin{enumerate}
+			\item Investigación y aprendizaje de conceptos básicos de graficación en la pantalla. (25 h)
+			\item Inicialización y configuración de la pantalla para la visualización. (20 h)
+			\item Implementación de la visualización del estado de la aeronave. (40 h)
+			\item Implementación de la visualización del mapa y la posición. (35 h)
+			\item Implementación de la lógica para mostrar/ocultar elementos de la UI. (20 h)
+        \end{enumerate}
+		\item Implementación de la reproducción de audio. (24 hs)
+        \begin{enumerate}
+			\item Investigación sobre modos de generación y/o reproducción de audio en sistemas embebidos. (8 h)
+			\item Implementación de la capacidad de reproducir audio. (8 h)
+			\item Lógica para activar los sonidos en eventos específicos del juego. (8 h)
+        \end{enumerate}
+		\item Implementación del control de vibración. (40 hs)
+        \begin{enumerate}
+			\item Investigación sobre generación de vibración con distintos patrones. (10 h)
+			\item Implementación de la capacidad de controlar el motor de vibración. (15 h)
+			\item Lógica para activar la vibración en eventos específicos del juego. (15 h)
+        \end{enumerate}
+		\item Gestión del estado del juego. (58 hs)
+        \begin{enumerate}
+			\item Definición de las variables del estado del juego a persistir. (8 h)
+			\item Implementación de la lógica para guardar el estado del juego en memoria no volátil. (20 h)
+			\item Implementación de la lógica para cargar el estado del juego desde memoria no volátil. (20 h)
+			\item Implementación de la lógica para pausar y reanudar el juego. (10 h)
+        \end{enumerate}
+		\item Integración del Demo de Juego. (Tarea continua)
+    \end{enumerate}
+	\item Pruebas y verificación. (55 hs)
+    \begin{enumerate}
+		\item Pruebas de control por inclinación. (8 h)
+		\item Pruebas de control por joystick. (5 h)
+		\item Pruebas de inicio y fin de sesión. (8 h)
+		\item Pruebas de visualización del estado de la aeronave. (8 h)
+		\item Pruebas de visualización del mapa. (8 h)
+		\item Pruebas de audio. (3 h)
+		\item Pruebas de vibración. (5 h)
+		\item Pruebas de guardado y carga del estado. (5 h)
+		\item Pruebas de pausa y reanudación. (5 h)
+		\item Pruebas de integración. (Tarea continua)
+    \end{enumerate}
+	\item Documentación. (115 hs)
+    \begin{enumerate}
+		\item Creación del diagrama de conexión de módulos. (15 h)
+		\item Grabación y edición del video demostrativo. (20 h)
+		\item Elaboración del informe de avance. (30 h)
+		\item Elaboración de la memoria técnica. (50 h)
+    \end{enumerate}
+	\item Tareas opcionales (se abordarán solo si el tiempo y los recursos lo permiten). (141 hs)
+    \begin{enumerate}
+		% \item Implementación de RTOS (Estimación incluida en el punto 2.2.4)
+		\item Implementación de gráficos a color. (78 hs)
+        \begin{enumerate}
+			\item Investigación de la capacidad de la pantalla. (9 h)
+			\item Diseño de gráficos y paleta de colores. (20 h)
+			\item Modificación de las rutinas de dibujo. (20 h)
+			\item Actualización de los elementos visuales. (20 h)
+			\item Pruebas de la visualización a color. (9 h)
+        \end{enumerate}
+		\item Implementación de selectores (por selector). (28 hs)
+        \begin{enumerate}
+			\item Diseño de la interfaz del selector. (5 h)
+			\item Implementación de la lógica de navegación del selector. (10 h)
+			\item Implementación de la lógica de aplicación del valor seleccionado. (8 h)
+			\item Pruebas del selector y su correcta funcionalidad. (5 h)
+        \end{enumerate}
+		\item Montaje en placas de experimentación. (35 hs)
+        \begin{enumerate}
+			\item Diseño del layout para placas de experimentación. (10 h)
+			\item Soldadura de los componentes en las placas de experimentación. (15 h)
+			\item Pruebas de alimentación de los componentes. (2 h)
+			\item Pruebas de continuidad y cortocircuitos. (3 h)
+			\item Pruebas de funcionamiento de cada componente. (5 h)
+        \end{enumerate}
+    \end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: tantas.
+Cantidad total de horas (sin contemplar opcionales): 720.
 
-\textbf{¡Importante!:} la unidad de horas es h y va separada por espacio del número. Es incorrecto escribir ``23hs".
+Cantidad de horas de ingeniería (sin contemplar opcionales ni documentación): 605.
 
-\textbf{Se recomienda que no haya ninguna tarea que lleve más de 40 h.} De ser así se recomienda dividirla en tareas de menor duración.
+% \begin{consigna}{red}
+% El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
 
-\end{consigna}
+% \begin{enumerate}
+% \item Grupo de tareas 1 (suma h)
+% 	\begin{enumerate}
+% 	\item Tarea 1 (tantas h)
+% 	\item Tarea 2 (tantas h)
+% 	\item Tarea 3 (tantas h)
+% 	\end{enumerate}
+% \item Grupo de tareas 2 (suma h)
+% 	\begin{enumerate}
+% 	\item Tarea 1 (tantas h)
+% 	\item Tarea 2 (tantas h)
+% 	\item Tarea 3 (tantas h)
+% 	\end{enumerate}
+% \item Grupo de tareas 3 (suma h)
+% 	\begin{enumerate}
+% 	\item Tarea 1 (tantas h)
+% 	\item Tarea 2 (tantas h)
+% 	\item Tarea 3 (tantas h)
+% 	\item Tarea 4 (tantas h)
+% 	\item Tarea 5 (tantas h)
+% 	\end{enumerate}
+% \end{enumerate}
+
+% Cantidad total de horas: tantas.
+
+% \textbf{¡Importante!:} la unidad de horas es h y va separada por espacio del número. Es incorrecto escribir ``23hs".
+
+% \textbf{Se recomienda que no haya ninguna tarea que lleve más de 40 h.} De ser así se recomienda dividirla en tareas de menor duración.
+
+% \end{consigna}
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
